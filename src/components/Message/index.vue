@@ -1,8 +1,10 @@
 <template>
   <div class="wrap">
-    <div class="message" :class="item.type" v-for="item in notices" :key="item._name">
-      <div class="content">{{item.content}}</div>
-    </div>
+    <transition-group name="fade">
+      <div class="message" :class="item.type" v-for="item in notices" :key="item.name">
+        <div class="content">{{item.content}}</div>
+      </div>
+    </transition-group>
   </div>
 </template>
 
@@ -22,23 +24,21 @@ export default {
   methods: {
     add(notice = {}) {
       // name标识 用于移除弹窗
-      let _name = this.getName()
+      let name = this.getName()
       // 合并选项
-      notice = Object.assign({
-        _name
-      }, DefaultOptions, notice)
+      notice = Object.assign({ name }, DefaultOptions, notice)
 
       this.notices.push(notice)
 
       setTimeout(() => {
-        this.removeNotice(_name)
+        this.removeNotice(name)
       }, notice.duration)
     },
     getName() {
       return 'msg_' + (mid++)
     },
-    removeNotice(_name) {
-      let index = this.notices.findIndex(item => item._name === _name)
+    removeNotice(name) {
+      let index = this.notices.findIndex(item => item.name === name)
       this.notices.splice(index, 1)
     }
   }
@@ -54,6 +54,7 @@ export default {
   flex-direction: column;
   align-items: center;
   transform: translateX(-50%);
+  z-index: 9999;
 }
 
 .message {
@@ -89,5 +90,14 @@ export default {
 .message.warning {
   border-left: var(--borderWidth) solid #e6a23c;
   background: #fdf6ec;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(-50px);
 }
 </style>
