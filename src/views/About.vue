@@ -16,6 +16,7 @@
         <ListItem>函数式组件及其应用场景</ListItem>
         <ListItem>Vue JSX</ListItem>
         <ListItem>结合第三方组件库动态创建表单</ListItem>
+        <ListItem>{{arr[0].a}}</ListItem>
       </List>
     </div>
 
@@ -35,12 +36,26 @@ export default {
       loading: undefined,
       showImg: false,
       imgList: [],
+      person: {
+        name: {
+          firstName: 'aaaaa',
+        },
+        arr: [1, 2, 3],
+      },
+      arr: [
+        { a: 'aaa' },
+        { a: 'bbb' },
+        { a: 'ccc' }
+      ]
     }
   },
 
   methods: {
     showMessage() {
-      this.$message({ duration: 2000, type: 'error', content: 'This is an about page' });
+      // this.$message({ duration: 2000, type: 'error', content: 'This is an about page' });
+      // this.arr[0] = { a: 'xxx' };
+      // this.$set(this.arr[0], 'a', 'xxx')
+      this.arr.splice(0, 1);
     },
     showImgViewer() {
       this.imgList = [

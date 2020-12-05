@@ -1,31 +1,29 @@
 <template>
   <div id="app">
-    <Menu mode="horizontal" theme="dark" active-name="1">
-      <MenuItem name="1" to="/">
-        <Icon type="ios-paper" />内容首页
-      </MenuItem>
-      <MenuItem name="2" to="/about">
-        <Icon type="ios-people" />组件管理
-      </MenuItem>
-      <Submenu name="3">
-        <template slot="title">
-          <Icon type="ios-stats" />统计分析
-        </template>
-        <MenuGroup title="使用">
-          <MenuItem name="3-1">新增和启动</MenuItem>
+    <div class="side-bar">
+      <Menu theme="dark" active-name="1">
+        <MenuItem name="1" to="/">
+          <Icon type="ios-paper" />内容首页
+        </MenuItem>
+        <MenuItem name="2" to="/about">
+          <Icon type="ios-people" />组件管理
+        </MenuItem>
+        <Submenu name="3">
+          <template slot="title">
+            <Icon type="ios-stats" />统计分析
+          </template>
+          <MenuItem name="3-1" to="/exportExcel">导出excel</MenuItem>
           <MenuItem name="3-2">活跃分析</MenuItem>
           <MenuItem name="3-3">时段分析</MenuItem>
-        </MenuGroup>
-        <MenuGroup title="留存">
-          <MenuItem name="3-4">用户留存</MenuItem>
-          <MenuItem name="3-5">流失用户</MenuItem>
-        </MenuGroup>
-      </Submenu>
-      <MenuItem name="4">
-        <Icon type="ios-construct" />综合设置
-      </MenuItem>
-    </Menu>
-    <router-view />
+        </Submenu>
+        <MenuItem name="4" to="/form">
+          <Icon type="ios-construct" />搜索表单
+        </MenuItem>
+      </Menu>
+    </div>
+    <div class="app-main">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -34,7 +32,6 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
@@ -49,5 +46,15 @@
       color: #42b983;
     }
   }
+}
+
+.side-bar {
+  position: fixed;
+  height: 100vh;
+  background-color: #515a6e;
+}
+
+.app-main {
+  margin-left: 240px;
 }
 </style>

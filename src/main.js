@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
 import ViewUI from 'view-design'
 import 'view-design/dist/styles/iview.css'
 
@@ -12,6 +15,7 @@ import VueLazyload from 'vue-lazyload'
 import Message from '@/components/Message/index.js'
 import Loading from '@/components/Loading/index.js'
 
+Vue.use(ElementUI)
 Vue.use(ViewUI)
 Vue.use(formCreate)
 Vue.use(VueLazyload)
