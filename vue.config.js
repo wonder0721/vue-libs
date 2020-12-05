@@ -14,18 +14,9 @@ module.exports = {
     outputDir: 'dist',
     assetsDir: 'static',
     indexPath: 'index.html',
-    // eslint-loader 是否在保存的时候检查
     lintOnSave: false,
-    // 生产环境是否生成 sourceMap 文件
     productionSourceMap: false,
-    // css相关配置
-    css: {
-        // 是否使用css分离插件 ExtractTextPlugin
-        extract: true,
-        // 开启 CSS source maps?
-        sourceMap: false,
-    },
-    // webpack-dev-server 相关配置
+    
     devServer: {
         open: true,
         host: '127.0.0.1',
@@ -41,7 +32,19 @@ module.exports = {
             '@': resolve('src')
           }
         }
-      },
+  },
+    // css相关配置
+    css: {
+      sourceMap: false,
+      loaderOptions: {
+            scss: {
+          prependData: `
+                @import "@/styles/variables.scss";
+                @import "@/styles/mixin.scss";
+                `
+            }
+        }
+    },
     // 第三方插件配置
     pluginOptions: {
         // ...

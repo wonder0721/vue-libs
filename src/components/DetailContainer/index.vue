@@ -1,12 +1,7 @@
 <template>
   <div class="detail-container">
     <div class="header">
-      <div class="top-bar">
-        <slot name="header"></slot>
-      </div>
-      <div class="base-info">
-        <slot name="baseInfo"></slot>
-      </div>
+      <slot name="header"></slot>
     </div>
     <div class="section">
       <div class="aside">
@@ -37,9 +32,8 @@ export default {
   overflow: hidden;
   .header {
     height: 200px;
-    position: sticky;
     width: 100%;
-    background-color: #409eff;
+    background-color: $detailHeaderBg;
     padding: 10px;
     box-sizing: border-box;
     .top-bar {
@@ -53,7 +47,6 @@ export default {
   }
   .section {
     position: relative;
-    // margin-top: 250px;
     height: calc(100vh - 200px);
     .aside {
       width: 300px;

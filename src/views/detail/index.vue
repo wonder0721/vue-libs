@@ -2,23 +2,20 @@
   <div>
     <detail-container id="bOrderDetail">
       <template #header>
-        <span>合肥市第一中学</span>
-        <span>张三</span>
-        <el-tag>待财务审核</el-tag>
-        <el-button>审核通过</el-button>
-        <el-button>审核不通过</el-button>
+        <div class="head">
+          <span class="mr20">合肥市第一中学</span>
+          <span class="mr20">张三</span>
+          <el-tag>待财务审核</el-tag>
+          <span class="fr">
+            <el-button size="small">审核通过</el-button>
+            <el-button size="small">审核不通过</el-button>
+          </span>
+        </div>
+        <div class="body">BODY</div>
       </template>
-      <template #baseInfo>BASEINFO</template>
       <template #aside="{container}">
         <Anchor show-ink :container="container">
-          <AnchorLink href="#first" title="first" />
-          <AnchorLink href="#second" title="second" />
-          <AnchorLink href="#third" title="third"></AnchorLink>
-          <AnchorLink href="#four" title="four"></AnchorLink>
-          <AnchorLink href="#five" title="five"></AnchorLink>
-          <AnchorLink href="#six" title="six"></AnchorLink>
-          <AnchorLink href="#seven" title="seven"></AnchorLink>
-          <AnchorLink href="#eight" title="eight"></AnchorLink>
+          <AnchorLink v-for="item in anchorList" :key="item.id" :href="'#'+item.id" :title="item.title" />
         </Anchor>
       </template>
       <template #main>
@@ -41,6 +38,21 @@ export default {
   name: 'Detail',
 
   components: { DetailContainer },
+
+  data() {
+    return {
+      anchorList: [
+        { title: 'first', id: 'first' },
+        { title: 'second', id: 'second' },
+        { title: 'third', id: 'third' },
+        { title: 'four', id: 'four' },
+        { title: 'five', id: 'five' },
+        { title: 'six', id: 'six' },
+        { title: 'seven', id: 'seven' },
+        { title: 'eight', id: 'eight' },
+      ]
+    }
+  },
 
   mounted() {
   }

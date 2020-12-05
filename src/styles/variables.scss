@@ -1,0 +1,18 @@
+$sideBarWidth: 198px; // 左侧菜单宽度
+$gray999: #999;
+$primary: #409eff;
+$success: #67c23a;
+$warning: #e6a23c;
+$danger: #f56c6c;
+
+$detailHeaderBg: #8cc5ff; // 详情页头部背景
+
+:export {
+    sideBarWidth: $sideBarWidth;
+    primary: $primary;
+    success: $success;
+    warning: $warning;
+    danger: $danger;
+    gray999: $gray999;
+    detailHeaderBg: $detailHeaderBg;
+}
