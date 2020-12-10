@@ -26,20 +26,24 @@
       <el-table-column prop="address" label="地址"></el-table-column>
     </el-table>
     <el-button type="primary" size="small" @click="viewDetail">查看详情</el-button>
+    <el-button type="primary" size="small" @click="add">添加</el-button>
+    <el-button type="primary" size="small" @click="modify">修改</el-button>
+    <plan-dialog :visible.sync="dialogVisible" :isEdit="isEdit"></plan-dialog>
   </div>
 </template>
 
 <script>
 import SearchForm from '../../components/SearchForm'
+import PlanDialog from './components/plan-dialog'
 export default {
   name: 'Form',
-  components: { SearchForm },
+  components: { SearchForm, PlanDialog },
   data() {
     return {
       keyWord: '',
       formModel: {
-        region: 0,
         radio: 0,
+        region: 0,
         radio1: 0,
         dateValue1: null,
       },
@@ -62,7 +66,7 @@ export default {
           { value: 2, label: '水电费' },
           { value: 3, label: '阿道夫' }
         ],
-        dateValue1: '时间筛选'
+        dateValue1: () => '时间筛选'
       },
       tableData: [{
         date: '2016-05-02',
@@ -80,7 +84,9 @@ export default {
         date: '2016-05-03',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1516 弄'
-      }]
+      }],
+      dialogVisible: false,
+      isEdit: false
 
     }
   },
@@ -88,9 +94,17 @@ export default {
     handleSearch(e) {
       console.log(e);
     },
-    viewDetail(){
+    viewDetail() {
       this.$router.push('/detail')
-    }
+    },
+    add() {
+      this.isEdit = false
+      this.dialogVisible = true
+    },
+    modify() {
+      this.isEdit = true
+      this.dialogVisible = true
+    },
   },
 }
 </script>

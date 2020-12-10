@@ -10,7 +10,64 @@
           <el-button size="small">审核不通过</el-button>
         </span>
       </div>
-      <div class="body">BODY</div>
+      <div class="body">
+        <el-row :gutter="20">
+          <el-col :span="8" class="info-block">
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+          </el-col>
+          <el-col :span="8" class="info-block">
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+          </el-col>
+          <el-col :span="8" class="info-block">
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+            <p>
+              <span>qqqqqqq</span>
+              <span>wwwwwwwwwww</span>
+            </p>
+          </el-col>
+        </el-row>
+      </div>
     </template>
     <template #aside="{container}">
       <!-- <anchor show-ink :container="container">
@@ -64,6 +121,9 @@ export default {
   position: fixed;
   width: 100%;
   background-color: #66b1ff;
+  .info-block {
+    @include info-list;
+  }
 }
 .section {
   margin-top: 200px;

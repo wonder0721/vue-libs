@@ -3,9 +3,9 @@
     <div class="search-header">
       <el-input :value="value" size="small" :placeholder="$attrs.placeholder || '请输入关键字'" @input="e => $emit('input', e)"></el-input>
       <el-button type="primary" size="small" icon="el-icon-search" @click="handleSearch">搜索</el-button>
-      <el-button plain size="small" @click="reset">重置</el-button>
+      <el-button plain size="small" icon="el-icon-refresh-left" @click="reset">重置</el-button>
       <el-button type="text" size="small" icon="el-icon-s-operation" @click="toggleCollapse">展开筛选</el-button>
-      <el-button type="primary" size="small" plain icon="el-icon-document" v-if="$attrs.showExport" class="fr" @click="exportExcel">导出</el-button>
+      <el-button type="primary" size="small" plain icon="el-icon-download" v-if="$attrs.showExport" class="fr" @click="exportExcel">导出</el-button>
     </div>
     <div class="search-tags">
       <span class="yixuan">已选条件：</span>

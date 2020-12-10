@@ -1,0 +1,19 @@
+@mixin info-list($width: 95px, $label-color: #c9dbfc, $content-color: #fff) {
+    padding: 10px;
+    overflow: hidden;
+    p {
+        margin: 10px 0;
+        span:first-child {
+            display: inline-block;
+            width: $width;
+            vertical-align: top;
+            color: $label-color;
+        }
+        span:last-child {
+            display: inline-block;
+            padding-left: 10px;
+            width: calc(100% - #{$width} - 5px);
+            color: $content-color;
+        }
+    }
+}
